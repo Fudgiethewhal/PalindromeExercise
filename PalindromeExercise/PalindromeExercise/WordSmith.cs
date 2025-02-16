@@ -1,11 +1,27 @@
 ﻿using System;
+using System.Linq;
 
 namespace PalindromeExercise;
 
 public class WordSmith
 {
-    public bool IsPalindrome(string input)
+    public bool IsAPalindrome(string input)
     {
-        throw new NotImplementedException();
+       var reversed = "";
+
+       for (int i = input.Length - 1; i >= 0; i--)
+       {
+           reversed += input.ToLower()[i];
+       }
+
+       if (reversed == input.ToLower())
+       {
+           return true;
+       }
+       else
+       {
+           return false;
+       }
+       return input.ToLower().SequenceEqual(input.ToLower().Reverse());
     }
 }
